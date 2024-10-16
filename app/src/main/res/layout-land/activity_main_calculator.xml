@@ -9,258 +9,298 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="?attr/colorPrimary"
         android:clickable="false"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Large" />
+        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Large">
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Balculator"
-        android:textColor="#FBFBFB"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Balculator"
+            android:textColor="#FBFBFB"
+            android:textSize="34sp" />
+    </com.google.android.material.appbar.MaterialToolbar>
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
-
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
-
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="6dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
-
-    <GridLayout
-        android:layout_width="0dp"
+<!--I know you can use a grid as shown in class but linear layout feels-->
+<!--like the more modern solution, plus i just like it more :3-->
+<!--it also feels more contained which i like-->
+    <LinearLayout
+        android:id="@+id/alignmentLayout"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_gravity="bottom"
-        android:columnCount="4"
-        android:rowCount="5"
+        android:layout_gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2">
+        app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
 
-        <!-- Row 1 -->
-        <Button
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/calsbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="7"
-            android:id="@+id/b7"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="2"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="0dp"
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/output"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:gravity="end"
+                android:text="" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="8"
-            android:id="@+id/b8"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/bs"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="S" />
+
+            <Button
+                android:id="@+id/br"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="R" />
+
+            <Button
+                android:id="@+id/ba"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="A" />
+
+            <Button
+                android:id="@+id/bc"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="C" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="9"
-            android:id="@+id/b9"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/b7"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/b8"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/b9"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/bdiv"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="÷" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="÷"
-            android:id="@+id/bdiv"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <!-- Row 2 -->
-        <Button
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/b4"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/b5"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/b6"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="6" />
+
+            <Button
+                android:id="@+id/bmul"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="*" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="4"
-            android:id="@+id/b4"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
+            <Button
+                android:id="@+id/b1"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/b2"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/b3"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/bminus"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="-" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row5"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="5"
-            android:id="@+id/b5"
-            app:autoSizeTextType="uniform"/>
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="6"
-            android:id="@+id/b6"
-            app:autoSizeTextType="uniform"/>
+            <Button
+                android:id="@+id/bdot"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="." />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="*"
-            android:id="@+id/bmul"
-            app:autoSizeTextType="uniform"/>
+            <Button
+                android:id="@+id/b0"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="0" />
 
-        <!-- Row 3 -->
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="1"
-            android:id="@+id/b1"
-            app:autoSizeTextType="uniform"/>
+            <Button
+                android:id="@+id/bplus"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="+" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="2"
-            android:id="@+id/b2"
-            app:autoSizeTextType="uniform"/>
+            <!--    i put equals last because it puts it close to the thumb-->
+            <Button
+                android:id="@+id/bequals"
+                style="@style/CalculatorButtonTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:layout_weight="1"
+                android:text="=" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="3"
-            android:id="@+id/b3"
-            app:autoSizeTextType="uniform"/>
+        </LinearLayout>
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="-"
-            android:id="@+id/bminus"
-            app:autoSizeTextType="uniform"/>
-
-        <!-- Row 4 -->
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="C"
-            android:id="@+id/bc"
-            app:autoSizeTextType="uniform"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="0"
-            android:id="@+id/b0"
-            app:autoSizeTextType="uniform"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="."
-            android:id="@+id/bdot"
-            app:autoSizeTextType="uniform"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="+"
-            android:id="@+id/bplus"
-            app:autoSizeTextType="uniform"/>
-
-        <!-- Row 5 -->
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="S"
-            android:id="@+id/bs"
-            app:autoSizeTextType="uniform"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="R"
-            android:id="@+id/br"
-            app:autoSizeTextType="uniform"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="A"
-            android:id="@+id/ba"
-            app:autoSizeTextType="uniform"/>
-
-<!--    i put equals last because it puts it close to the thumb-->
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:text="="
-            android:id="@+id/bequals"
-            app:autoSizeTextType="uniform"/>
-
-    </GridLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

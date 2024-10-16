@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <style name="CalculatorButtonStyle">-->
-<!--        <item name="android:autoSizeTextType">uniform</item>-->
-<!--        <item name="android:autoSizeMinTextSize">12sp</item>-->
-<!--        <item name="android:autoSizeMaxTextSize">30sp</item>-->
-<!--        <item name="android:autoSizeStepGranularity">2sp</item>-->
-<!--        <item name="android:textSize">18sp</item> &lt;!&ndash; Fallback default size &ndash;&gt;-->
-<!--    </style>-->
+    <style name="CalculatorButtonTextStyle">
+        <item name="autoSizeTextType">uniform</item>
+        <item name="autoSizeMinTextSize">10sp</item>
+        <item name="autoSizeMaxTextSize">256sp</item>
+        <item name="autoSizeStepGranularity">2sp</item>
+    </style>
 </resources>
