@@ -16,6 +16,7 @@
         android:clickable="false"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
         app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Large">
 
         <TextView
@@ -30,9 +31,6 @@
             android:textSize="34sp" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-<!--I know you can use a grid as shown in class but linear layout feels-->
-<!--like the more modern solution, plus i just like it more :3-->
-<!--it also feels more contained which i like-->
     <LinearLayout
         android:id="@+id/alignmentLayout"
         android:layout_width="match_parent"
@@ -46,7 +44,7 @@
             android:id="@+id/calsbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="10"
             android:orientation="vertical">
 
             <View
@@ -58,7 +56,7 @@
 
             <TextView
                 android:id="@+id/output"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/TextAutoScaleStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="10"

@@ -7,339 +7,233 @@
     android:layout_height="match_parent"
     tools:context=".MainCalculatorActivity">
 
-    <Button
-        android:id="@+id/bs"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:text="S"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/br"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b0" />
+    <!--I know you can use a grid as shown in class but linear layout feels-->
+    <!--like the more modern solution, plus i just like it more :3-->
+    <!--it also feels more contained which i like-->
+    <LinearLayout
+        android:id="@+id/alignmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bc"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:text="C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ba"
-        app:layout_constraintStart_toEndOf="@+id/br"
-        app:layout_constraintTop_toBottomOf="@+id/bequals" />
+        <LinearLayout
+            android:id="@+id/titlebar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/ba"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:text="A"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bc"
-        app:layout_constraintTop_toBottomOf="@+id/bdiv" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/materialToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#7986CB"
+                android:clickable="false"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
 
-    <Button
-        android:id="@+id/br"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:text="R"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bc"
-        app:layout_constraintStart_toEndOf="@+id/bs"
-        app:layout_constraintTop_toBottomOf="@+id/bdot" />
+                <TextView
+                    android:id="@+id/titleText"
+                    style="@style/TextAutoScaleStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Balculator"
+                    android:textColor="#FBFBFB" />
+            </com.google.android.material.appbar.MaterialToolbar>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/b0"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="0"
-        app:layout_constraintBottom_toTopOf="@+id/bs"
-        app:layout_constraintEnd_toStartOf="@+id/bdot"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b1" />
+        <LinearLayout
+            android:id="@+id/calsbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bequals"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="="
-        app:layout_constraintBottom_toTopOf="@+id/bc"
-        app:layout_constraintEnd_toStartOf="@+id/bdiv"
-        app:layout_constraintStart_toEndOf="@+id/bdot"
-        app:layout_constraintTop_toBottomOf="@+id/b3" />
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
 
-    <Button
-        android:id="@+id/bdiv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:text="÷"
-        app:layout_constraintBottom_toTopOf="@+id/ba"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bequals"
-        app:layout_constraintTop_toBottomOf="@+id/bmul" />
+            <TextView
+                android:id="@+id/output"
+                style="@style/TextAutoScaleStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:gravity="end|center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text="" />
 
-    <Button
-        android:id="@+id/bdot"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="."
-        app:layout_constraintBottom_toTopOf="@+id/br"
-        app:layout_constraintEnd_toStartOf="@+id/bequals"
-        app:layout_constraintStart_toEndOf="@+id/b0"
-        app:layout_constraintTop_toBottomOf="@+id/b2" />
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_weight="1"
+                android:background="?android:attr/listDivider" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/b2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="2"
-        app:layout_constraintBottom_toTopOf="@+id/bdot"
-        app:layout_constraintEnd_toStartOf="@+id/b3"
-        app:layout_constraintStart_toEndOf="@+id/b1"
-        app:layout_constraintTop_toBottomOf="@+id/b5" />
+        <LinearLayout
+            android:id="@+id/row1"
+            android:paddingTop="2dp"
+            style="@style/LinearLayoutStyle">
 
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/b0"
-        app:layout_constraintEnd_toStartOf="@+id/b2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b4" />
+            <Button
+                android:id="@+id/bpar"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="#4DB6AC"
+                android:text="( )" />
 
-    <Button
-        android:id="@+id/bmul"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:text="x"
-        app:layout_constraintBottom_toTopOf="@+id/bdiv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/b3"
-        app:layout_constraintTop_toBottomOf="@+id/bminus" />
+            <Button
+                android:id="@+id/bac"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/clearButtons"
+                android:text="AC" />
 
-    <Button
-        android:id="@+id/b3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="3"
-        app:layout_constraintBottom_toTopOf="@+id/bequals"
-        app:layout_constraintEnd_toStartOf="@+id/bmul"
-        app:layout_constraintStart_toEndOf="@+id/b2"
-        app:layout_constraintTop_toBottomOf="@+id/b6" />
+            <Button
+                android:id="@+id/bc"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/clearButtons"
+                android:text="C" />
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:clickable="false"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Large" />
+            <Button
+                android:id="@+id/bplus"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/operatorButtons"
+                android:text="+" />
 
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Balculator"
-        android:textColor="#FBFBFB"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="@+id/materialToolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="4dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialToolbar" />
+        <LinearLayout
+            android:id="@+id/row2"
+            style="@style/LinearLayoutStyle">
 
-    <TextView
-        android:id="@+id/output"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="6dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+            <Button
+                android:id="@+id/b7"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="7" />
 
-    <View
-        android:id="@+id/divider2"
-        android:layout_width="0dp"
-        android:layout_height="4dp"
-        android:layout_marginTop="6dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/output" />
+            <Button
+                android:id="@+id/b8"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="8" />
 
-    <Button
-        android:id="@+id/b7"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="7"
-        app:layout_constraintBottom_toTopOf="@+id/b4"
-        app:layout_constraintEnd_toStartOf="@+id/b8"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+            <Button
+                android:id="@+id/b9"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="9" />
 
-    <Button
-        android:id="@+id/b8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="8"
-        app:layout_constraintBottom_toTopOf="@+id/b5"
-        app:layout_constraintEnd_toStartOf="@+id/b9"
-        app:layout_constraintStart_toEndOf="@+id/b7"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+            <Button
+                android:id="@+id/bdiv"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/operatorButtons"
+                android:text="÷" />
 
-    <Button
-        android:id="@+id/b9"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="9"
-        app:layout_constraintBottom_toTopOf="@+id/b6"
-        app:layout_constraintEnd_toStartOf="@+id/bplus"
-        app:layout_constraintStart_toEndOf="@+id/b8"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/bplus"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:text="+"
-        app:layout_constraintBottom_toTopOf="@+id/bminus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/b9"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        <LinearLayout
+            android:id="@+id/row3"
+            style="@style/LinearLayoutStyle">
 
-    <Button
-        android:id="@+id/b4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="4"
-        app:layout_constraintBottom_toTopOf="@+id/b1"
-        app:layout_constraintEnd_toStartOf="@+id/b5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/b7" />
+            <Button
+                android:id="@+id/b4"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="4" />
 
-    <Button
-        android:id="@+id/b5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="5"
-        app:layout_constraintBottom_toTopOf="@+id/b2"
-        app:layout_constraintEnd_toStartOf="@+id/b6"
-        app:layout_constraintStart_toEndOf="@+id/b4"
-        app:layout_constraintTop_toBottomOf="@+id/b8" />
+            <Button
+                android:id="@+id/b5"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="5" />
 
-    <Button
-        android:id="@+id/b6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="6"
-        app:layout_constraintBottom_toTopOf="@+id/b3"
-        app:layout_constraintEnd_toStartOf="@+id/bminus"
-        app:layout_constraintStart_toEndOf="@+id/b5"
-        app:layout_constraintTop_toBottomOf="@+id/b9" />
+            <Button
+                android:id="@+id/b6"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="6" />
 
-    <Button
-        android:id="@+id/bminus"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
-        android:text="-"
-        app:layout_constraintBottom_toTopOf="@+id/bmul"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/b6"
-        app:layout_constraintTop_toBottomOf="@+id/bplus" />
+            <Button
+                android:id="@+id/bmul"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/operatorButtons"
+                android:text="*" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row4"
+            style="@style/LinearLayoutStyle">
+
+            <Button
+                android:id="@+id/b1"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="1" />
+
+            <Button
+                android:id="@+id/b2"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="2" />
+
+            <Button
+                android:id="@+id/b3"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="3" />
+
+            <Button
+                android:id="@+id/bminus"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/operatorButtons"
+                android:text="-" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/row5"
+            android:paddingBottom="2dp"
+            style="@style/LinearLayoutStyle">
+
+            <Button
+                android:id="@+id/bdot"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/specialButtons"
+                android:text="." />
+
+            <Button
+                android:id="@+id/b0"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/numberButtons"
+                android:text="0" />
+
+            <Button
+                android:id="@+id/bneg"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/specialButtons"
+                android:text="+/-" />
+
+            <!--    i put equals last because it puts it close to the thumb-->
+            <Button
+                android:id="@+id/bequals"
+                style="@style/CalculatorButtonTextStyle"
+                android:backgroundTint="@color/equalsButton"
+                android:text="=" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

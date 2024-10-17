@@ -8,7 +8,33 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+
 public class MainCalculatorActivity extends AppCompatActivity {
+
+    public static String formatDecimal(double value) {
+        BigDecimal decimalValue = BigDecimal.valueOf(value);
+
+        String pattern;
+
+        if (decimalValue.stripTrailingZeros().scale() <= 0) {
+            pattern = "#,##0";
+        } else {
+            pattern = "#,##0.##";
+        }
+
+        DecimalFormat df = new DecimalFormat(pattern);
+
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+        symbols.setDecimalSeparator('.');
+        symbols.setGroupingSeparator(',');
+
+        df.setDecimalFormatSymbols(symbols);
+
+        return df.format(value);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
