@@ -72,7 +72,7 @@
                 android:id="@+id/bc"
                 style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/clearButtons"
-                android:text="C" />
+                android:text="BS" />
 
             <Button
                 android:id="@+id/bplus"

@@ -49,13 +49,14 @@
 
         <LinearLayout
             android:id="@+id/row2"
+            android:paddingTop="2dp"
             style="@style/LinearLayoutStyle">
 
             <Button
-                android:id="@+id/bdiv"
+                android:id="@+id/bplus"
                 style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
-                android:text="÷" />
+                android:text="+" />
 
             <Button
                 android:id="@+id/b7"
@@ -88,10 +89,10 @@
             style="@style/LinearLayoutStyle">
 
             <Button
-                android:id="@+id/bmul"
+                android:id="@+id/bdiv"
                 style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
-                android:text="*" />
+                android:text="÷" />
 
             <Button
                 android:id="@+id/b4"
@@ -124,10 +125,10 @@
             style="@style/LinearLayoutStyle">
 
             <Button
-                android:id="@+id/bminus"
+                android:id="@+id/bmul"
                 style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
-                android:text="-" />
+                android:text="*" />
 
             <Button
                 android:id="@+id/b1"
@@ -162,10 +163,10 @@
             style="@style/LinearLayoutStyle">
 
             <Button
-                android:id="@+id/bplus"
+                android:id="@+id/bminus"
                 style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
-                android:text="+" />
+                android:text="-" />
 
             <Button
                 android:id="@+id/bneg"
