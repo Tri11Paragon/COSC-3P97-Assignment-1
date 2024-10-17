@@ -18,37 +18,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/titlebar"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/materialToolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="#7986CB"
-                android:clickable="false"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme">
-
-                <TextView
-                    android:id="@+id/titleText"
-                    style="@style/TextAutoScaleStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Balculator"
-                    android:textColor="#FBFBFB" />
-            </com.google.android.material.appbar.MaterialToolbar>
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/calsbar"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -88,25 +57,26 @@
 
             <Button
                 android:id="@+id/bpar"
-                style="@style/CalculatorButtonTextStyle"
-                android:backgroundTint="#4DB6AC"
-                android:text="( )" />
+                style="@style/CalculatorButtonStyle"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/specialButtons"
+                android:text="( )"/>
 
             <Button
                 android:id="@+id/bac"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/clearButtons"
                 android:text="AC" />
 
             <Button
                 android:id="@+id/bc"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/clearButtons"
                 android:text="C" />
 
             <Button
                 android:id="@+id/bplus"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
                 android:text="+" />
 
@@ -118,25 +88,25 @@
 
             <Button
                 android:id="@+id/b7"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="7" />
 
             <Button
                 android:id="@+id/b8"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="8" />
 
             <Button
                 android:id="@+id/b9"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="9" />
 
             <Button
                 android:id="@+id/bdiv"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
                 android:text="÷" />
 
@@ -148,25 +118,25 @@
 
             <Button
                 android:id="@+id/b4"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="4" />
 
             <Button
                 android:id="@+id/b5"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="5" />
 
             <Button
                 android:id="@+id/b6"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="6" />
 
             <Button
                 android:id="@+id/bmul"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
                 android:text="*" />
 
@@ -178,25 +148,25 @@
 
             <Button
                 android:id="@+id/b1"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="1" />
 
             <Button
                 android:id="@+id/b2"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="2" />
 
             <Button
                 android:id="@+id/b3"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="3" />
 
             <Button
                 android:id="@+id/bminus"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/operatorButtons"
                 android:text="-" />
 
@@ -208,27 +178,27 @@
             style="@style/LinearLayoutStyle">
 
             <Button
-                android:id="@+id/bdot"
-                style="@style/CalculatorButtonTextStyle"
+                android:id="@+id/bneg"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/specialButtons"
-                android:text="." />
+                android:text="+/-" />
 
             <Button
                 android:id="@+id/b0"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/numberButtons"
                 android:text="0" />
 
             <Button
-                android:id="@+id/bneg"
-                style="@style/CalculatorButtonTextStyle"
+                android:id="@+id/bdot"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/specialButtons"
-                android:text="+/-" />
+                android:text="." />
 
             <!--    i put equals last because it puts it close to the thumb-->
             <Button
                 android:id="@+id/bequals"
-                style="@style/CalculatorButtonTextStyle"
+                style="@style/CalculatorButtonStyle"
                 android:backgroundTint="@color/equalsButton"
                 android:text="=" />
 
