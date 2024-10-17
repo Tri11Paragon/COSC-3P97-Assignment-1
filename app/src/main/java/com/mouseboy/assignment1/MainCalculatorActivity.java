@@ -2,10 +2,12 @@ package com.mouseboy.assignment1;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 public class MainCalculatorActivity extends AppCompatActivity {
 
     // I missing having decltype already
-    private final StateFarm state = new StateFarm(this,"");
+    private StateFarm state = new StateFarm(this,"");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ public class MainCalculatorActivity extends AppCompatActivity {
             return insets;
         });
 
+        // setup button listeners
         findViewById(R.id.b0).setOnClickListener((View view) -> state.addNumber("0"));
         findViewById(R.id.b1).setOnClickListener((View view) -> state.addNumber("1"));
         findViewById(R.id.b2).setOnClickListener((View view) -> state.addNumber("2"));
@@ -59,4 +62,17 @@ public class MainCalculatorActivity extends AppCompatActivity {
         findViewById(R.id.bpar).setOnClickListener((View view) -> state.paren());
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        // only equation string needs to be saved / restored
+        outState.putString("equ", state.getString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        state = new StateFarm(this, savedInstanceState.getString("equ"));
+        state.updateDisplay();
+    }
 }
